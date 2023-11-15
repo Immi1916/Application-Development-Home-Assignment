@@ -21,7 +21,15 @@ def print_application_usage():
 
 
 def add_task(item):
-    pass
+    """
+    When we type a command -a then this method called
+    which add the new task in the todo_task.txt file
+    """
+    todo_task.append(item)
+
+    with open(filename, 'w') as file:
+        for items in todo_task:
+            file.write(f'{items}\n')
 
 
 def remove_task():
@@ -33,7 +41,15 @@ def check_todo_list():
 
 
 def todo_list_content():
-    pass
+    """
+    This method is used to return the list
+    of tasks that are available in the todo_task.txt file
+    """
+    if not todo_task:
+        print('No todos task in the list')
+    else:
+        for i, items in enumerate(todo_task):
+            print(f'{i + 1} - {items}')
 
 
 def main():
